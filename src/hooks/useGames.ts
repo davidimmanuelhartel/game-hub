@@ -2,12 +2,19 @@ import { useEffect, useState } from "react";
 import apiClent from "../services/api-clent";
 import { Cancel } from "@mui/icons-material";
 import { CanceledError } from "axios";
+import { NumberDecrementStepperProps } from "@chakra-ui/react";
 
+export interface Platform {
+    id: number;
+    name: string;
+    slug: string;
+    }
 
 export interface Game {
     id: number;
     name: string;
     background_image: string;
+    parent_platforms: {platform: Platform}[] 
   }
   
   interface FetchGamesResponse {
