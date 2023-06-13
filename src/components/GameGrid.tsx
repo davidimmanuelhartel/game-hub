@@ -9,7 +9,7 @@ interface Game {
 
 interface FetchGamesResponse {
   count: number;
-  result: Game[];
+  results: Game[];
 }
 
 const GameGrid = () => {
@@ -19,7 +19,7 @@ const GameGrid = () => {
   useEffect(() => {
     apiClent
       .get<FetchGamesResponse>("/xgames")
-      .then((res) => setGames(res.data.result))
+      .then((res) => setGames(res.data.results))
       .catch((err) => setError(err.message));
   });
 
